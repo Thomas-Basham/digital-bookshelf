@@ -1,33 +1,36 @@
+import { withAuth0 } from '@auth0/auth0-react';
 import React from 'react';
 import { Navbar, NavItem } from 'react-bootstrap';
 import { Link } from "react-router-dom";
-import LoginButton from './LoginButton';
 import './Header.css';
-import LogoutButton from './LogoutButton';
+import LogoutButtonAutho from "./LogoutButtonAutho";
+import LoginButtonAutho from "./LoginButtonAutho";
+
 
 class Header extends React.Component {
   render() {
     return (
       <>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-        <Navbar.Brand>My Favorite Books</Navbar.Brand>
+        <Navbar.Brand>Digital Bookshelf</Navbar.Brand>
+        <NavItem>
+
+        {this.props.auth0.isAuthenticated ? (
+          <LogoutButtonAutho />
+        ) : (
+          <LoginButtonAutho />
+        )}
+
+
+        </NavItem>
         <NavItem><Link to="/" className="nav-link">Home</Link></NavItem>
         <NavItem><Link to="/profile" className="nav-link">Profile</Link></NavItem>
-        {/* TODO: if the user is logged in, render a navigation link to profile page */}
-        {/* TODO: if the user is logged in, render the `LogoutButton` */}
+        <NavItem><Link to="/Bookshelf" className="nav-link">Your Bookshelf</Link></NavItem>
       </Navbar>
-      {this.props.user
-        ?
-
-        <LogoutButton onLogout={this.props.onLogout}/>
-        :
-        <LoginButton onLogin={this.props.onLogin}/>
-
-      }
 
       </>
     )
   }
 }
 
-export default Header;
+export default withAuth0(Header);

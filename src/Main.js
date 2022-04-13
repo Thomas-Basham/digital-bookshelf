@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { withAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { Container, Card, Button, Form } from "react-bootstrap";
-
+import BookFormModal from "./BookFormModal";
 let SERVER = process.env.REACT_APP_SERVER;
 
 class Main extends React.Component {
@@ -14,7 +14,8 @@ class Main extends React.Component {
       searchedBooks: [],
       books: [],
       disable: false,
-      currentBook: {}
+      currentBook: {},
+      showBookForm: false,
     };
   }
   getGoogleBooks = async (e) => {
@@ -56,7 +57,7 @@ class Main extends React.Component {
       status: false,
       email: this.props.auth0.user.email,
       author: element.author[0],
-      canonicalVolumeLink: element.canonicalVolumeLink
+      canonicalVolumeLink: element.canonicalVolumeLink,
     };
 
     this.postBook(newBook);
@@ -71,9 +72,32 @@ class Main extends React.Component {
       currentBook: element,
     });
   };
+
+  addBookHandler = () => {
+    this.setState({
+      showBookForm: true,
+    });
+  };
+
+  addBookRemove = () => {
+    this.setState({
+      showBookForm: false,
+    });
+  };
+
+  postBook = async (newBook) => {
+    try {
+      let url = `${process.env.REACT_APP_SERVER}/books`;
+      let createdBook = await axios.post(url, newBook);
+      this.setState({
+        books: [...this.state.books, createdBook.data],
+      });
+    } catch (error) {
+      console.log("we have an error:", error.response.data);
+    }
+  };
   render() {
     console.log(this.state);
-    
 
     let renderedBooks = this.state.searchedBooks.map((element, index) => {
       return (
@@ -87,30 +111,34 @@ class Main extends React.Component {
 
             <Card.Text>
               <a
-                className="btn btn-primary"
+                className="btn btn-info"
                 href={element.canonicalVolumeLink}
                 target="_blank"
                 rel="noopener noreferrer"
+                variant="info"
               >
-                Link to Book
+                View on Google Books™
               </a>
             </Card.Text>
 
-
-              <Button 
-                onClick={() => this.handleNewBook(element)} 
-                type="checkbox"
-                className="btn-check"
-                autoComplete="off"
-                size="sm"
-                disabled={this.state.disable}
-                >
+            <Button
+              onClick={() => this.handleNewBook(element)}
+              type="checkbox"
+              className="btn-check"
+              autoComplete="off"
+              size="sm"
+              disabled={this.state.disable}
+              variant="outline-primary"
+            >
               Add To Bookshelf
             </Button>
 
-
-
-
+            <BookFormModal
+              email={this.props.auth0.user.email}
+              show={this.state.showBookForm}
+              addBookRemove={this.addBookRemove}
+              postBook={this.postBook}
+            />
           </Card.Body>
         </Card>
       );
@@ -123,17 +151,39 @@ class Main extends React.Component {
         <Container className="search-bar">
           <Form>
             <Form.Group className="mb-3" controlId="formSearch">
-            <Form.Label className="search-label">Find a Book to add to your Digital Bookshelf </Form.Label>
-            <Form.Control
-              type="text"
-              onInput={(event) => {
-                this.handleFormInput(event.target.value);
-              }}
-              placeholder="Powered by Google Books "
-            ></Form.Control>
+              <Form.Label className="search-label">
+                Find a Book to add to your Digital Bookshelf{" "}
+              </Form.Label>
+              <Form.Control
+                type="text"
+                onInput={(event) => {
+                  this.handleFormInput(event.target.value);
+                }}
+                placeholder="Powered by Google Books "
+              ></Form.Control>
             </Form.Group>
-            <Button className="rollOut"  type="submit" onClick={this.getGoogleBooks}>Search Books</Button>
+            <Button
+              className="rollOut"
+              type="submit"
+              onClick={this.getGoogleBooks}
+            >
+              Search Books
+            </Button>
           </Form>
+          <Button
+            id="ad-book-btn"
+            className="w-100"
+            onClick={this.addBookHandler}
+            variant="outline-primary"
+          >
+            Add book outside of Google Books
+          </Button>
+          <BookFormModal
+            email={this.props.auth0.user.email}
+            show={this.state.showBookForm}
+            addBookRemove={this.addBookRemove}
+            postBook={this.postBook}
+          />
         </Container>
 
         <Container className="renderedBooks">{renderedBooks}</Container>

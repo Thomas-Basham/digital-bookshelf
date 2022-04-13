@@ -2,6 +2,7 @@
 
 **Authors**: Cole Gibbs, Thomas Basham
 **Version**: 1.0.0
+[https://digitalbookshelf.netlify.app/]
 
 ## Overview
 
@@ -17,9 +18,11 @@ add .env's
 ## Architecture
 
 Express, dotenv, cors, mongoose, nodemon, mongodb, javascript,
+
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
 
 ## Change Log
+
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
@@ -28,19 +31,19 @@ Express, dotenv, cors, mongoose, nodemon, mongodb, javascript,
 
 Name of feature:**Set up Repos**
 
-Estimate of time needed to complete: _1 hr____
+Estimate of time needed to complete: \_1 hr\_\_\_\_
 
-Start time: **2pm**_
+Start time: **2pm**\_
 
 Finish time: **230pm**
 
-Actual time needed to complete: _**30mins**
+Actual time needed to complete: \_**30mins**
 
-Name of feature:**Book Component**_______________
+Name of feature:**Book Component********\_\_\_******
 
-Estimate of time needed to complete: _1 hr____
+Estimate of time needed to complete: \_1 hr\_\_\_\_
 
-Start time: **4:16pm**_
+Start time: **4:16pm**\_
 
 Finish time: **10:30pm**
 
@@ -49,12 +52,14 @@ Actual time needed to complete: 3.5 hrs
 <!-- See below -->
 
 ## Credit and Collaborations
+
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
 ### Logicstical
 
 #### What hours will you be available to communicate?
 
-We will communicate an work between 1 and 6 pm. We will meet at night if we are behind. 
+We will communicate an work between 1 and 6 pm. We will meet at night if we are behind.
 
 #### What platform will you use to communicate (ie. Slack, phone …)?
 
@@ -62,7 +67,7 @@ We will use Slack to communicate.
 
 #### How often will you take breaks?
 
-We will take breaks every hour to hour and a half. 
+We will take breaks every hour to hour and a half.
 
 #### What is your plan if you start to fall behind?
 
@@ -92,11 +97,11 @@ We will pair program so we will be able to ensure that we both understand what i
 
 #### What will your team do if one person is pulling all the weight while the other person is not contributing?
 
-If one person is pulling to much weight, the one doing more will ask for more support and the one not contributing will ask for more responsiblity. 
+If one person is pulling to much weight, the one doing more will ask for more support and the one not contributing will ask for more responsiblity.
 
 #### What will your team do if one person is taking over the project and not letting the other member contribute?
 
-The person who is contribuing less will tell the other team member that they are unhappy with the amount of work they are doing and would like to have an even split on tasks. 
+The person who is contribuing less will tell the other team member that they are unhappy with the amount of work they are doing and would like to have an even split on tasks.
 
 #### How will you approach each other and the challenge of building an application knowing that it is impossible for two people to be at the exact same place in understanding and skill level?
 

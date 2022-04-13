@@ -61,9 +61,9 @@ class Main extends React.Component {
 
     this.postBook(newBook);
 
-    this.setState({
-      disable: true
-    })
+    // this.setState({
+    //   disable: true
+    // })
   };
 
   bookForUpdate = (element) => {

@@ -5,3 +5,8 @@ a{
 a:hover{
   color:darkgrey;
 }
+
+nav{
+
+  border-radius: 3px;
+}

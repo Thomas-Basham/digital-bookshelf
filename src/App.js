@@ -53,7 +53,9 @@ class App extends React.Component {
             <Footer />
           </Router>
         ) : (
-          <h2 className="text-align-center">Please Log In</h2>
+          <div>
+          <p id="quote"> “The more that you read, the more things you will know. The more that you learn, the more places you’ll go.” - Dr. Seuss </p>
+          </div>
         )}
    
       </>

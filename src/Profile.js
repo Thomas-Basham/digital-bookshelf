@@ -59,7 +59,7 @@ class Profile extends React.Component {
       <>
       <div style={{ marginBlock: 90, paddingTop:20 }}>
       <img src={this.props.auth0.user.picture} alt={this.props.auth0.user.name} />
-      <h2>{this.props.auth0.user.name}</h2>
+      <h2 style={{marginTop:"3vh"}} >{this.props.auth0.user.name}</h2>
       <p className="tealOpac" >{this.props.auth0.user.email}</p>
       </div>
 

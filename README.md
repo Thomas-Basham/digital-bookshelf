@@ -1,6 +1,7 @@
 # Project Name
 
 **Authors**: Cole Gibbs, Thomas Basham
+
 **Version**: 1.0.0
 
 [digitalbookshelf.netlify.app](https://digitalbookshelf.netlify.app)

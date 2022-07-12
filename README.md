@@ -2,7 +2,8 @@
 
 **Authors**: Cole Gibbs, Thomas Basham
 **Version**: 1.0.0
-[https://digitalbookshelf.netlify.app/]
+
+[digitalbookshelf.netlify.app](https://digitalbookshelf.netlify.app)
 
 ## Overview
 
